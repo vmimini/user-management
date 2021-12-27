@@ -1,0 +1,23 @@
+.users-container {
+    overflow: scroll;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .user {
+        width: 25%;
+
+        @media only screen and (max-width: 1400px) {
+            width: 33%;
+        }
+
+        @media only screen and (max-width: 900px) {
+            width: 50%;
+        }
+
+        @media only screen and (max-width: 500px) {
+            width: 100%;
+        }
+    }
+}

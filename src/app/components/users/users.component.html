@@ -1,0 +1,8 @@
+<app-loader *ngIf="loading"></app-loader>
+<div *ngIf="!loading" class="users-container">
+    <app-user class="user" *ngFor="let u of users"
+    [user]="u"
+    (userReturnedToParent)="updateParent($event)"
+    >
+    </app-user>
+</div>
