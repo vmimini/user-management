@@ -2,38 +2,37 @@
     display: flex;
     flex-direction: column;
     margin: 5%;
-    box-shadow: 10px 8px 11px 5px #48DFFF;
+    box-shadow: 5px 2px 5px 2px #e0e0e0;
     border-radius: 5px;
+}
 
-    .actions {
-        height: 30px;
-        display: flex;
-        flex-direction: row;
-        font-size: 20px;
+.actions {
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+}
 
-        .delete {
-            width: 50%;
-            color: red;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-        }
+.delete {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    color: red;
+}
 
-        .edit {
-            width: 50%;
-            color: green;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-        }
-    }
+.edit {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: green;
+}
 
-    
-    .info {
-        height: 200px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+.info {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { User } from '../../services/models';
 import { Router } from '@angular/router';
-import { User } from 'src/app/services/models';
 
 @Component({
   selector: 'app-user',
@@ -10,16 +10,19 @@ import { User } from 'src/app/services/models';
 export class UserComponent implements OnInit {
 
   @Input() user: User;
-  @Output() userReturnedToParent = new EventEmitter<User>(null);
+  @Output() deletedUser = new EventEmitter<User>(null);
+
   constructor(private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+  }
 
-  editUser(): void {
+  editUser() {
     this.router.navigate([`edit-user/${this.user.id}`]);
   }
 
-  deleteUser(): void {
-    this.userReturnedToParent.emit(this.user);
+  deleteUser() {
+    // i dergojme parent component user object qe duhet te fshije
+    this.deletedUser.emit(this.user);
   }
 }

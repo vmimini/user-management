@@ -1,12 +1,14 @@
 <div class="user">
     <div class="info">
-        <div>{{user.name}}</div>
-        <div>{{user.email}}</div>
-        <div>{{user.address.city}}</div>
+        <div class="name">{{user.name}}</div>
+        <div class="username">{{user.username}}</div>
+        <div class="email">{{user.email}}</div>
+        <div class="phone">{{user.phone}}</div>
+        <div class="address">{{user.address.city}}</div>
+        <div class="company">{{user.company.name}}</div>
     </div>
     <div class="actions">
         <div class="edit" (click)="editUser()"><i class="fa fa-edit"></i></div>
         <div class="delete" (click)="deleteUser()"><i class="fa fa-trash"></i></div>
-        <div></div>
     </div>
 </div>

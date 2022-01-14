@@ -3,11 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
 import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/user/user.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { LoaderComponent } from './components/loader/loader.component';
+import { AddItemComponent } from './components/add-item/add-item.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +18,15 @@ import { LoaderComponent } from './components/loader/loader.component';
     UsersComponent,
     UserComponent,
     UserFormComponent,
-    LoaderComponent
+    LoaderComponent,
+    AddItemComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

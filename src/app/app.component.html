@@ -1,7 +1,11 @@
 <div class="main-container">
-  <div class="header">User Management</div>
+  <div class="header" [routerLink]="'/users'">User Management</div>
   <div class="content">
+    <!-- nepermjet <router-outlet> directive, per path-e te ndryshme shfaqim view te ndryshme
+         (duke iu referuar konfigurimit path - component ne app-routing module)
+         header dhe footer do te shfaqen ne cdo view/path
+     -->
     <router-outlet></router-outlet>
   </div>
-  <div class="footer">SDA</div>
+  <div class="footer">&copy; SDA</div>
 </div>

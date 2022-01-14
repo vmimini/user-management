@@ -1,8 +1,5 @@
 <app-loader *ngIf="loading"></app-loader>
-<div *ngIf="!loading" class="users-container">
-    <app-user class="user" *ngFor="let u of users"
-    [user]="u"
-    (userReturnedToParent)="updateParent($event)"
-    >
-    </app-user>
+<div class="users-container" *ngIf="!loading">
+    <app-add-item class="add-item" (click)="addItem()"></app-add-item>
+    <app-user class="user" *ngFor="let user of users" (deletedUser)="deleteUser($event)" [user]="user"></app-user>
 </div>

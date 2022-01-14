@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { BackendService } from 'src/app/services/backend.service';
-import { User } from 'src/app/services/models';
+import { User } from '../../services/models';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BackendService } from '../../services/backend.service';
 
 @Component({
   selector: 'app-user-form',
@@ -9,19 +9,55 @@ import { User } from 'src/app/services/models';
   styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent implements OnInit {
+  user: User;
 
-  constructor(private activedRoute: ActivatedRoute,
-    private backendService: BackendService) { 
+  constructor(
+    private route: ActivatedRoute,
+    private backendService: BackendService,
+    private router: Router
+  ) { }
 
-    const userId = +this.activedRoute.snapshot.paramMap.get('id');
-    console.log(userId);
-
-    this.backendService.getUser(userId)
-    .subscribe((result: User) => {
-      console.log(result);
-    })
+  ngOnInit(): void {
+    this.getUser();
   }
 
-  ngOnInit(): void {}
+  getUser(): void {
+    // lexojme id e user-it nga parametri i path-it
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id) {
+      // nese kemi id ne path (edit-user/:id) jemi duke bere update
+      this.backendService.getUser(id).subscribe(user => this.user = user);
+    } else {
+      // nese nuk kemi id ne path (add-user) jemi duke shtuar nje user te ri
+      this.user = {
+        address: null,
+        company: null,
+        email: '',
+        id: null,
+        name: '',
+        phone: '',
+        username: '',
+        website: ''
+      };
+    }
+  }
 
+  goBack(): void {
+    this.router.navigate(['']);
+  }
+
+  save(): void {
+    // Saves the data and redirects to the previous view
+    if (this.user.id) {
+      // update user
+      this.backendService.updateUser(this.user)
+        .subscribe(() => this.goBack());
+    } else {
+      // add new user
+      this.backendService.addUser(this.user).subscribe(() => {
+        console.log('user added');
+        this.goBack();
+      });
+    }
+  }
 }

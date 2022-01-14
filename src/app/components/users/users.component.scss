@@ -4,20 +4,22 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
 
-    .user {
-        width: 25%;
+.user,
+.add-item {
+    width: 25%;
+    cursor: pointer;
 
-        @media only screen and (max-width: 1400px) {
-            width: 33%;
-        }
+    @media only screen and (max-width: 1400px) {
+        width: 33%;
+    }
 
-        @media only screen and (max-width: 900px) {
-            width: 50%;
-        }
+    @media only screen and (max-width: 900px) {
+        width: 50%;
+    }
 
-        @media only screen and (max-width: 500px) {
-            width: 100%;
-        }
+    @media only screen and (max-width: 500px) {
+        width: 100%;
     }
 }
